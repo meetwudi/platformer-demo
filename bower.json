@@ -1,0 +1,22 @@
+{
+  "name": "Platformer",
+  "version": "0.0.0",
+  "authors": [
+    "John Wu <webmaster@leapoahead.com>"
+  ],
+  "main": "index.html",
+  "license": "NONE",
+  "homepage": "https://github.com/tjwudi/platformer-demo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/scripts/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "kiwijs": "~1.0.0"
+  }
+}
