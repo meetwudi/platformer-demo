@@ -20,7 +20,41 @@ define(['kiwi'], function(K) {
 
   Man.prototype.update = function() {
     K.GameObjects.Sprite.prototype.update.call(this);
+    this.captureKeyEvents();
     this.physics.update();
+  };
+
+  Man.prototype.captureKeyEvents = function() {
+    var keys = this.state.keys,
+      stage = this.state.game.stage;
+    if (keys.left.isDown) {
+      this.facing = 'left';
+      if (this.transform.x >= 3) {
+        this.transform.x -= 3;
+      }
+      if (this.animation.currentAnimation.name !== 'walk-' + this.facing) {
+        this.animation.play('walk-' + this.facing);
+      }
+    }
+    else if (keys.right.isDown) {
+      this.facing = 'right';
+      if (this.transform.x <= stage.width - 3) {
+        this.transform.x += 3;
+      }
+      if (this.animation.currentAnimation.name !== 'walk-' + this.facing) {
+        this.animation.play('walk-' + this.facing);
+      }
+    }
+    else if (keys.up.isDown) {
+      if (this.physics.isTouching(K.Components.ArcadePhysics.DOWN)) {
+        this.physics.velocity.y = -80;
+      }
+    }
+    else {
+      if (this.animation.currentAnimation.name !== 'idle-' + this.facing) {
+        this.animation.play('idle-' + this.facing);
+      }
+    }
   };
   return Man;
 });

@@ -18,6 +18,11 @@ define(['kiwi', 'sprites/Man'], function(K, Man) {
     // Create the player man!
     this.man = new Man(this, 10, 400);
     this.addChild(this.man);
+    // Register Keyboard Keys
+    this.keys = {};
+    this.keys.left = this.game.input.keyboard.addKey(K.Input.Keycodes.A, true);
+    this.keys.right = this.game.input.keyboard.addKey(K.Input.Keycodes.D, true);
+    this.keys.up = this.game.input.keyboard.addKey(K.Input.Keycodes.W, true);
   };
   MainState.update = function() {
     K.State.prototype.update.call(this);
