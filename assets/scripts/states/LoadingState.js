@@ -11,7 +11,7 @@ define(['kiwi'], function(K) {
 
     // Load images
     this.addSpriteSheet('map', '/assets/images/map.png', 70, 70, true);
-    this.addImage('man', '/assets/images/man.png', true);
+    this.addSpriteSheet('man', '/assets/images/man.png', 128/4, 192/4, true);
 
     // Load data
     this.addJSON('map_data', '/assets/data/map.json', true);

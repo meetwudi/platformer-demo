@@ -7,12 +7,15 @@ define(['kiwi'], function(K) {
   };
   MainState.create = function() {
     K.State.prototype.create.call(this);
-    // Create the map
-    this.map = new K.GameObjects.Tilemap.TileMap(this, 'map_data', this.textures['map']);
-    this.addChild(this.map.layers[0]);
+    createMap.call(this);
   };
   MainState.update = function() {
     K.State.prototype.update.call(this);
   };
   return MainState;
+
+  function createMap() {
+    this.map = new K.GameObjects.Tilemap.TileMap(this, 'map_data', this.textures['map']);
+    this.addChild(this.map.layers[0]);
+  }
 });
