@@ -10,6 +10,8 @@ define(['kiwi'], function(K) {
     this.animation.add('walk-left', [4, 5, 6, 7], 0.1, true);
     // play default animation
     this.animation.play('idle-' + this.facing);
+    // change the hitbox
+    this.box.hitbox = new K.Geom.Rectangle(6, 4, 19, 33);
     // add ArcadePhysics support
     this.physics = this.components.add(new K.Components.ArcadePhysics(this, this.box));
     this.physics.acceleration = new K.Geom.Point(0, 9.8);
