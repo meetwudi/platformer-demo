@@ -9,10 +9,11 @@ define(['kiwi'], function(K) {
                               this.textures['loadingImage'], 250, 150);
     this.addChild(this.loadingImage);
 
-    // Load images
+    // Load Image
+    this.addImage('rock', '/assets/images/rock.png', true);
+    // Load sprite sheets
     this.addSpriteSheet('map', '/assets/images/map.png', 70, 70, true);
     this.addSpriteSheet('man', '/assets/images/man.png', 128/4, 192/4, true);
-
     // Load data
     this.addJSON('map_data', '/assets/data/map.json', true);
   };
