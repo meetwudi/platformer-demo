@@ -1,4 +1,4 @@
-define(['kiwi', 'sprites/Man'], function(K, Man) {
+define(['kiwi', 'sprites/Man', 'sprites/Rock'], function(K, Man, Rock) {
   var MainState = new K.State('MainState');
   MainState.preload = function() {
     // Rebuild all assets in order to have access to them
@@ -18,6 +18,8 @@ define(['kiwi', 'sprites/Man'], function(K, Man) {
     // Create the player man!
     this.man = new Man(this, 10, 400);
     this.addChild(this.man);
+    // Let rocks fall ...
+    this.addChild(new Rock(this, 100));  
     // Register Keyboard Keys
     this.keys = {};
     this.keys.left = this.game.input.keyboard.addKey(K.Input.Keycodes.A, true);
